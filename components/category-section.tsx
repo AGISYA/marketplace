@@ -41,7 +41,7 @@ export function CategorySection() {
   return (
     <section className="py-12 text-black">
       <div className="container">
-        <div className="grid grid-cols-2 md:mt-20 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 mt-20 md:grid-cols-3 lg:grid-cols-6 gap-6">
           {categories.map((category) => (
             <Link
               key={category.name}

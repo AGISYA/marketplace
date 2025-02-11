@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { FaCalendar, FaUser, FaArrowRight } from "react-icons/fa";
 
 const posts = [
@@ -30,8 +31,8 @@ const posts = [
 
 export default function LatestNews() {
   return (
-    <section className="py-16 text-black">
-      <div className="container">
+    <section className="py-16 text-black px-4 md:px-8">
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-800 mb-4">Latest News</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
@@ -40,22 +41,24 @@ export default function LatestNews() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((post) => (
             <article
               key={post.id}
-              className="bg-white rounded-lg shadow-md overflow-hidden group"
+              className="bg-white rounded-lg shadow-md overflow-hidden group transition-transform hover:scale-[1.02]"
             >
-              <div className="relative overflow-hidden">
-                <img
+              <div className="relative overflow-hidden w-full h-64">
+                <Image
                   src={post.image || "/placeholder.svg"}
                   alt={post.title}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                  layout="fill"
+                  objectFit="cover"
+                  className="group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
 
               <div className="p-6">
-                <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
+                <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-4">
                   <div className="flex items-center gap-2">
                     <FaCalendar />
                     <span>{post.date}</span>
